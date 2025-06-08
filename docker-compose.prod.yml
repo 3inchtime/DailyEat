@@ -1,0 +1,82 @@
+version: '3.8'
+
+services:
+  # MySQL数据库
+  database:
+    image: mysql:8.0
+    container_name: daily_eat_db_prod
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: daily_eat_db
+      MYSQL_USER: daily_eat_user
+      MYSQL_PASSWORD: ${DB_PASSWORD:-daily_eat_secure_password}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-root_secure_password}
+    volumes:
+      - mysql_data_prod:/var/lib/mysql
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    networks:
+      - daily_eat_network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+
+  # Django后端
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: daily_eat_backend_prod
+    restart: unless-stopped
+    environment:
+      - DEBUG=False
+      - DB_HOST=database
+      - DB_PORT=3306
+      - DB_NAME=daily_eat_db
+      - DB_USER=daily_eat_user
+      - DB_PASSWORD=${DB_PASSWORD:-daily_eat_secure_password}
+      - SECRET_KEY=${SECRET_KEY:-your-very-secret-key-change-in-production}
+      - ALLOWED_HOSTS=localhost,127.0.0.1,backend,frontend,${DOMAIN:-yourdomain.com}
+    volumes:
+      - static_volume_prod:/app/staticfiles
+      - media_volume_prod:/app/media
+    depends_on:
+      database:
+        condition: service_healthy
+    networks:
+      - daily_eat_network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    command: ["gunicorn", "--bind", "0.0.0.0:8000", "--workers", "3", "daily_eat_backend.wsgi:application"]
+
+  # Vue.js前端
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: daily_eat_frontend_prod
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - backend
+    networks:
+      - daily_eat_network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+volumes:
+  mysql_data_prod:
+  static_volume_prod:
+  media_volume_prod:
+
+networks:
+  daily_eat_network:
+    driver: bridge

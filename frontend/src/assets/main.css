@@ -1,0 +1,30 @@
+@import './base.css';
+
+/* PC端优先设计 - 移除宽度限制和响应式布局 */
+#app {
+  width: 100%;
+  min-width: 1024px; /* 确保最小宽度为PC端 */
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+a,
+.green {
+  text-decoration: none;
+  color: hsla(160, 100%, 37%, 1);
+  transition: 0.4s;
+  padding: 3px;
+}
+
+@media (hover: hover) {
+  a:hover {
+    background-color: hsla(160, 100%, 37%, 0.2);
+  }
+}
+
+/* 移除响应式布局，专注PC端 */
+body {
+  width: 100%;
+  min-width: 1024px;
+}

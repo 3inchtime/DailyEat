@@ -1,0 +1,405 @@
+# ========================================
+# Daily Eat Project .gitignore
+# ========================================
+
+# ========================================
+# Environment Variables & Secrets
+# ========================================
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+.env.docker
+*.env
+
+# ========================================
+# Python / Django Backend
+# ========================================
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+env.bak/
+venv.bak/
+
+# Django specific
+*.log
+local_settings.py
+settings_local.py
+db.sqlite3
+db.sqlite3-journal
+staticfiles/
+media/
+migrations/0*.py
+
+# Testing
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Celery
+celerybeat-schedule
+celerybeat.pid
+
+# Translations
+*.mo
+*.pot
+
+# Documentation
+docs/_build/
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# ========================================
+# Node.js / Vue.js Frontend
+# ========================================
+
+# Dependencies
+node_modules/
+jspm_packages/
+bower_components/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Production build
+dist/
+dist-ssr/
+build/
+.next/
+.nuxt/
+.vuepress/dist/
+
+# Cache directories
+.cache/
+.parcel-cache/
+.vite/
+.rollup.cache/
+.npm/
+.eslintcache
+.stylelintcache
+
+# Testing
+coverage/
+*.lcov
+.nyc_output/
+test-results/
+playwright-report/
+cypress/videos/
+cypress/screenshots/
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# TypeScript
+*.tsbuildinfo
+typings/
+
+# Optional files
+.node_repl_history
+*.tgz
+.yarn-integrity
+
+# Temporary folders
+tmp/
+temp/
+
+# Storybook
+.out/
+.storybook-out/
+
+# Auto-generated files
+auto-imports.d.ts
+components.d.ts
+
+# ========================================
+# Docker & Deployment
+# ========================================
+
+# Docker volumes and data
+docker-volumes/
+mysql_data/
+postgres_data/
+
+# Docker Compose override files
+docker-compose.override.yml
+docker-compose.local.yml
+docker-compose.dev.yml
+
+# Deployment scripts with secrets
+deploy.local.sh
+deploy.local.bat
+
+# ========================================
+# Database
+# ========================================
+
+# Database files
+*.sql
+*.dump
+backup_*.sql
+backup_*.dump
+
+# SQLite
+*.db
+*.sqlite
+*.sqlite3
+
+# MySQL/PostgreSQL dumps
+*.sql.gz
+*.dump.gz
+
+# ========================================
+# IDE / Editor
+# ========================================
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+!.vscode/extensions.json
+
+# JetBrains IDEs
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+.netrwhist
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# Atom
+.atom/
+
+# ========================================
+# Operating System
+# ========================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# ========================================
+# Project Specific Files
+# ========================================
+
+# Backup files
+*.bak
+*.backup
+*.old
+*.orig
+
+# Temporary files
+tmp/
+temp/
+.tmp/
+.temp/
+
+# Configuration files with sensitive data
+config.local.*
+settings.local.*
+local_settings.*
+*.local.conf
+
+# SSL certificates and keys
+*.pem
+*.key
+*.crt
+*.csr
+*.p12
+*.pfx
+
+# Data and upload directories
+data/
+uploads/
+downloads/
+user_uploads/
+
+# Test files and data
+test_data/
+test_uploads/
+test_downloads/
+fixtures/local/
+
+# Documentation build
+docs/_build/
+docs/build/
+site/
+
+# ========================================
+# Deployment & Server Config
+# ========================================
+
+# Deployment scripts with secrets
+deploy.local.*
+.deploy/
+deployment/local/
+
+# Server configuration files
+nginx.local.conf
+apache.local.conf
+*.local.conf
+
+# Process management
+*.pid
+supervisord.log
+supervisord.pid
+
+# ========================================
+# Monitoring & Analytics
+# ========================================
+
+# Error tracking
+.sentry-native/
+sentry.properties
+
+# Analytics and monitoring
+.analytics/
+monitoring/local/
+
+# Performance profiling
+*.prof
+*.profile
+
+# ========================================
+# Security & Secrets
+# ========================================
+
+# API keys and secrets
+secrets/
+.secrets/
+api_keys.txt
+*.secret
+
+# JWT keys
+jwt_*.key
+*.jwt
+
+# OAuth credentials
+oauth_*.json
+client_secret*.json
+
+# ========================================
+# Miscellaneous
+# ========================================
+
+# Compressed files
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# System files
+.DS_Store?
+ehthumbs.db
+Icon?
+Thumbs.db
+
+# Patch files
+*.patch
+*.diff
+
+# Archive files
+archive/
+old/
+deprecated/
