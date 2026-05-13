@@ -730,4 +730,99 @@ onMounted(() => {
     padding: 40px;
   }
 }
+
+/* 暗黑模式样式 */
+:global(.dark) .profile-view {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+}
+
+:global(.dark) .page-header {
+  background: linear-gradient(135deg, #4c1d95 0%, #7c3aed 100%);
+}
+
+:global(.dark) .username {
+  color: white;
+}
+
+:global(.dark) .user-email {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+:global(.dark) .join-date {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+:global(.dark) .user-avatar {
+  background: rgba(255, 255, 255, 0.2);
+  border: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+:global(.dark) .section-title {
+  color: #f1f5f9;
+}
+
+:global(.dark) .section-title .el-icon {
+  color: #60a5fa;
+}
+
+:global(.dark) .overview-section,
+:global(.dark) .food-stats-section,
+:global(.dark) .quick-nav-section {
+  background: #1e293b;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+:global(.dark) .overview-card {
+  background: #334155;
+  border-color: #475569;
+}
+
+:global(.dark) .overview-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+:global(.dark) .card-value {
+  color: #f1f5f9;
+}
+
+:global(.dark) .card-label {
+  color: #94a3b8;
+}
+
+:global(.dark) .food-stat-card {
+  background: #334155;
+  border-color: #475569;
+}
+
+:global(.dark) .food-stat-card:hover {
+  background: #475569;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+:global(.dark) .stat-number {
+  color: #f1f5f9;
+}
+
+:global(.dark) .stat-label {
+  color: #94a3b8;
+}
+
+:global(.dark) .nav-card {
+  background: #334155;
+  border-color: #475569;
+}
+
+:global(.dark) .nav-card:hover {
+  background: #475569;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  border-color: #60a5fa;
+}
+
+:global(.dark) .nav-content h3 {
+  color: #f1f5f9;
+}
+
+:global(.dark) .nav-content p {
+  color: #94a3b8;
+}
 </style>

@@ -34,6 +34,16 @@
           </el-menu-item>
         </el-menu>
 
+        <!-- 主题切换按钮 -->
+        <div class="theme-toggle">
+          <el-button 
+            :icon="themeStore.isDark ? Sun : Moon" 
+            @click="themeStore.toggleTheme"
+            circle
+            :type="themeStore.isDark ? 'warning' : 'primary'"
+          />
+        </div>
+
         <!-- 用户菜单 -->
         <div class="user-menu">
           <el-dropdown @command="handleCommand" trigger="hover">
@@ -73,13 +83,16 @@
 <script setup>
 import { useRouter } from 'vue-router'
 import { useAuthStore } from '@/stores/auth'
+import { useThemeStore } from '@/stores/theme'
 import { ElMessageBox } from 'element-plus'
 import {
-  User, ArrowDown, House, Food, Document, DataAnalysis, SwitchButton
+  User, ArrowDown, House, Food, Document, DataAnalysis, SwitchButton,
+  Sun, Moon
 } from '@element-plus/icons-vue'
 
 const router = useRouter()
 const authStore = useAuthStore()
+const themeStore = useThemeStore()
 
 const handleCommand = (command) => {
   if (command === 'logout') {
@@ -187,6 +200,10 @@ const handleCommand = (command) => {
 .main-nav .el-menu-item .el-icon {
   margin-right: 8px;
   font-size: 18px;
+}
+
+.theme-toggle {
+  margin-right: 16px;
 }
 
 .user-menu {
@@ -301,5 +318,59 @@ const handleCommand = (command) => {
   .main-nav {
     margin: 0 32px;
   }
+}
+
+/* 暗黑模式样式 */
+:global(.dark) .layout-container {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+}
+
+:global(.dark) .header {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border-bottom: 1px solid rgba(71, 85, 105, 0.6);
+}
+
+:global(.dark) .logo {
+  color: #f1f5f9;
+}
+
+:global(.dark) .logo-text {
+  background: linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+:global(.dark) .subtitle {
+  color: #94a3b8;
+}
+
+:global(.dark) .main-nav .el-menu-item {
+  color: #94a3b8;
+}
+
+:global(.dark) .main-nav .el-menu-item:hover {
+  color: #f1f5f9;
+  background: linear-gradient(135deg, #334155 0%, #475569 100%);
+}
+
+:global(.dark) .main-nav .el-menu-item.is-active {
+  color: #60a5fa;
+  background: linear-gradient(135deg, #334155 0%, #475569 100%);
+}
+
+:global(.dark) .user-info {
+  color: #f1f5f9;
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  border: 1px solid rgba(71, 85, 105, 0.6);
+}
+
+:global(.dark) .user-info:hover {
+  background: linear-gradient(135deg, #334155 0%, #475569 100%);
+}
+
+:global(.dark) .user-avatar {
+  background: linear-gradient(135deg, #475569 0%, #64748b 100%);
+  color: #f1f5f9;
 }
 </style>
