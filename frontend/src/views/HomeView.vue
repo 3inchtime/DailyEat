@@ -37,7 +37,7 @@
         <!-- 主题切换按钮 -->
         <div class="theme-toggle">
           <el-button 
-            :icon="themeStore.isDark ? Sun : Moon" 
+            :icon="themeStore.isDark ? Sunny : Moon" 
             @click="themeStore.toggleTheme"
             circle
             :type="themeStore.isDark ? 'warning' : 'primary'"
@@ -87,7 +87,7 @@ import { useThemeStore } from '@/stores/theme'
 import { ElMessageBox } from 'element-plus'
 import {
   User, ArrowDown, House, Food, Document, DataAnalysis, SwitchButton,
-  Sun, Moon
+  Sunny, Moon
 } from '@element-plus/icons-vue'
 
 const router = useRouter()

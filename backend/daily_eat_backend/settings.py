@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
+import os
 from pathlib import Path
 from datetime import timedelta
 
@@ -86,7 +87,6 @@ WSGI_APPLICATION = 'daily_eat_backend.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 # Database configuration with fallback to SQLite
-import os
 
 # Check if we should use SQLite (for Windows development)
 USE_SQLITE = os.environ.get('USE_SQLITE', 'False').lower() == 'true'
