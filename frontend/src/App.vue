@@ -18,7 +18,8 @@ import { RouterView } from 'vue-router'
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   background-color: #f0f2f5;
-  transition: background-color 0.3s ease;
+  color: #1e293b;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 #app {
